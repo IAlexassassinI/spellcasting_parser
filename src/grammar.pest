@@ -1,0 +1,48 @@
+spell = { invoke_word ~ whitespace ~ spell_type_params ~ whitespace ~ executable_params_many }
+
+invoke_word = { "cast" | "invoke" }
+
+spell_type_params = { (modifiers ~ whitespace)? ~ spell_type }
+spell_type = { "rune" | "projectile" | "touch" | "self" }
+
+type_execution_bridge = { whitespace ~ "to" ~ whitespace }
+
+modifiers = { (modifier ~ modifier_separator)* ~ modifier }
+modifier_separator = { whitespace ~ "and" ~ whitespace }
+modifier = { adjective | condition | repetition | duration }
+
+adjective = { "flaming" | "swift" | "powerful" | "frozen" }
+
+condition = { "if" ~ whitespace ~ condition_name }
+condition_name = { "is burning" | "is moving" }
+
+repetition = { number ~ whitespace ~ "of times" }
+duration = { "for" ~ whitespace ~ number ~ whitespace? ~ "s" }
+
+executable_params_many = { (executable_params ~ executable_separator)* ~ executable_params }
+executable_separator = { whitespace ~ "also" ~ whitespace }
+executable_params = { (modifiers ~ whitespace)? ~ executable }
+executable = { ignite | apply | pull | push | explode }
+
+ignite = { ignite_word }
+ignite_word = { "ignite" }
+
+apply = { apply_word ~ whitespace ~ effect }
+apply_word = { "apply" }
+
+pull = { pull_word }
+pull_word = { "pull" }
+
+push = { push_word }
+push_word = { "push" }
+
+explode = { explode_word }
+explode_word = { "explode" }
+
+effect = { damage_word | heal_word }
+
+damage_word = { "damage" }
+heal_word = { "heal" }
+
+number = @{ ('0'..'9')+ }
+whitespace = { " " | "\t" }
