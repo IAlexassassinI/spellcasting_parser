@@ -1,0 +1,2 @@
+cast flaming and 5 of times rune to flaming explode
+invoke touch to apply heal also explode

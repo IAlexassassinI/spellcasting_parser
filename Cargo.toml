@@ -9,4 +9,4 @@ readme = "README.md"
 anyhow = "1.0.93"
 pest = "2.7.14"
 pest_derive = "2.7.14"
-
+clap = { version = "4.5.21", features = ["cargo", "derive"] }
