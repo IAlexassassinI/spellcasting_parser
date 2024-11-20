@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 description = "Spellcasting Parser is designed to parse and validate spellcasting commands. It allows users to create and validate spells using a variety of components, including modifiers, spell types, and executable actions."
 readme = "README.md"
+license = "MIT"
 
 [dependencies]
 anyhow = "1.0.93"
